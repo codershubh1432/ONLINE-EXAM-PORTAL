@@ -7,7 +7,7 @@ function HomePage({ searchResults }) {
   const [message, setMessage] = useState("");
   const [type, setType] = useState("");
 
-  // 🎯 Map exam type → UI details
+  
   const examDetails = {
     "mca": {
       title: "MAH-MCA-CET",
@@ -26,7 +26,7 @@ function HomePage({ searchResults }) {
     },
   };
 
-  // ✅ Start Exam
+  
   const handleStart = (examType) => {
     const token = localStorage.getItem("token");
 
@@ -35,7 +35,7 @@ function HomePage({ searchResults }) {
   setType("warning");
   setMessage("Please login first... Redirecting");
 
-  // 👇 Save exam type before login
+  
   localStorage.setItem("selectedExam", examType);
 
   setTimeout(() => {
@@ -43,15 +43,15 @@ function HomePage({ searchResults }) {
   }, 1000);
 
 } else {
-  // 👇 Save exam type
+  
   localStorage.setItem("selectedExam", examType);
 
-  // 👇 Go to roll page instead of exam
+
  navigate(`/exam/${examType}`);
 }
  };
 
-  // 🔥 Extract UNIQUE exam types from backend results
+  
   const uniqueExams = searchResults && searchResults.length > 0
     ? [...new Set(searchResults.map(item => item.exam))]
     : Object.keys(examDetails); // show all if no search
@@ -59,14 +59,14 @@ function HomePage({ searchResults }) {
   return (
     <div className="container-fluid p-0" style={{ marginTop: "70px" }}>
 
-      {/* MESSAGE */}
+      
       {message && (
         <div className={`alert alert-${type} text-center m-0`}>
           {message}
         </div>
       )}
 
-      {/* HERO */}
+      
       <div className="position-relative">
         <img
           src="/heroimage.png"
@@ -78,12 +78,7 @@ function HomePage({ searchResults }) {
         <div className="position-absolute top-50 end-0 translate-middle-y text-end text-white pe-5">
           <h1 className="fw-bold">Start Your Journey</h1>
           <p className="lead">Test your skills anytime, anywhere</p>
-          {/* <button
-  onClick={() => navigate("/explore")}
-  className="btn btn-dark mt-3 px-4 py-2"
->
-  Explore Tests
-</button> */}
+         
 <button
   onClick={() => {
     const token = localStorage.getItem("token");
@@ -102,7 +97,7 @@ function HomePage({ searchResults }) {
         </div>
       </div>
 
-      {/* CARDS */}
+      
       <div className="container mt-5">
         <h5 className="mb-4">Available Exams</h5>
 
@@ -129,18 +124,9 @@ function HomePage({ searchResults }) {
                       <h5 className="card-title">{details.title}</h5>
                       <p className="card-text text-muted">{details.desc}</p>
 
-                      {/* <button
-                        onClick={() => handleStart(exam)}
-                        className="btn btn-primary w-100"
-                      >
-                        Start Exam
-                      </button> */}
-                      {/* <button
-  onClick={() => navigate("/explore")}
-  className="btn btn-dark"
->
-  Explore Tests
-</button> */}
+                     
+                      
+
 <button
   onClick={() => {
     const token = localStorage.getItem("token");

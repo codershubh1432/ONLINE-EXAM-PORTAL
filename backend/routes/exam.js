@@ -1,9 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const Question = require("../models/Question");
-// const sendMail = require("../utils/sendMail"); // optional
 
-// ================= GET QUESTIONS BY EXAM =================
+
+
 router.get("/questions/:exam", async (req, res) => {
   try {
     const examType = req.params.exam;
@@ -19,38 +19,13 @@ router.get("/questions/:exam", async (req, res) => {
 });
 
 
-// ================= 🔍 SEARCH QUESTIONS / EXAMS =================
-// router.get("/search", async (req, res) => {
-//   try {
-//     const query = req.query.q;
-
-//     // ❗ prevent empty search
-//     if (!query) {
-//       return res.json([]);
-//     }
-
-//     const results = await Question.find({
-//       $or: [
-//         { exam: { $regex: query, $options: "i" } },
-//         { question: { $regex: query, $options: "i" } },
-//       ],
-//     })
-//     .select("exam question") // return only needed fields
-//     .limit(10);
-
-//     res.json(results);
-//   } catch (err) {
-//     console.error(err);
-//     res.status(500).json({ message: "Search error" });
-//   }
-// });
 router.get("/search", async (req, res) => {
   try {
     const query = req.query.q;
 
     if (!query) return res.json([]);
 
-    // 🔥 get unique exams only
+    
     const exams = await Question.distinct("exam", {
       exam: { $regex: query, $options: "i" }
     });
@@ -63,7 +38,7 @@ router.get("/search", async (req, res) => {
 });
 
 
-// ================= SUBMIT EXAM =================
+
 router.post("/submit", async (req, res) => {
   try {
     const { answers, exam } = req.body;
@@ -93,5 +68,5 @@ router.post("/submit", async (req, res) => {
 });
 
 
-// ================= EXPORT =================
+
 module.exports = router;

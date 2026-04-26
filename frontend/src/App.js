@@ -15,7 +15,7 @@ import ExplorePage from "./pages/explorepage";
 
 function App() {
 
-  // 🔥 GLOBAL SEARCH STATE (IMPORTANT)
+  
   const [searchResults, setSearchResults] = useState([]);
 
   const isAuth = () => {
@@ -26,14 +26,14 @@ function App() {
     <BrowserRouter>
       <div className="d-flex flex-column min-vh-100">
 
-        {/* ✅ PASS search setter to Navbar */}
+        
         <Navbar setSearchResults={setSearchResults} />
 
         <main className="flex-grow-1">
 
           <Routes>
 
-            {/* ✅ PASS search results to HomePage */}
+            
             <Route
               path="/"
               element={<HomePage searchResults={searchResults} />}
@@ -43,8 +43,7 @@ function App() {
             <Route path="/signup" element={<SignUp />} />
             <Route path="/result" element={<ResultPage />} />
             <Route path="/helppage" element={<HelpPage />} />
-            {/* <Route path="/explorepage" element={<ExplorePage />} /> */}
-            {/* <Route path="/explore" element={<ExplorePage searchResults={searchResults} />} /> */}
+            
             
 <Route
   path="/explore"

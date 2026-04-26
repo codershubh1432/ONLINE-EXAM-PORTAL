@@ -31,7 +31,8 @@ function Navbar({ setSearchResults }) {
   const fetchResults = async () => {
     try {
       const res = await fetch(
-        `http://localhost:5000/api/search?q=${query}`
+      
+        `https://online-exam-portal-vs1n.onrender.com/api/search?q=${query}`
       );
       const data = await res.json();
 
@@ -53,12 +54,12 @@ function Navbar({ setSearchResults }) {
     
     <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top shadow-sm">
   <div className="container-fluid">
-    {/* 1. BRAND */}
+    
     <Link className="navbar-brand fw-bold" to="/">
       Online Exam Portal
     </Link>
 
-    {/*  TOGGLER  */}
+    
     <button
       className="navbar-toggler"
       type="button"
@@ -71,10 +72,10 @@ function Navbar({ setSearchResults }) {
       <span className="navbar-toggler-icon"></span>
     </button>
 
-    {/*  COLLAPSIBLE CONTENT */}
+    
     <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
       
-      {/*  SEARCH BAR  */}
+      
       <div className="mx-auto my-2 my-lg-0 d-flex position-relative" style={{ width: "100%", maxWidth: "500px" }}>
         <FaSearch
           style={{
@@ -94,7 +95,7 @@ function Navbar({ setSearchResults }) {
           onChange={(e) => setQuery(e.target.value)}
         />
 
-        {/*  RESULTS DROPDOWN */}
+        
         {results.length > 0 && (
           <div
             className="position-absolute bg-white shadow w-100 rounded"
@@ -115,7 +116,7 @@ function Navbar({ setSearchResults }) {
           </div>
         )}
 
-        {/*  NO RESULT */}
+      
         {query && results.length === 0 && (
           <div className="position-absolute bg-white shadow w-100 mt-1 p-2 text-center" style={{ top: "100%", zIndex: 1000 }}>
             No results found 
@@ -123,7 +124,7 @@ function Navbar({ setSearchResults }) {
         )}
       </div>
 
-      {/*  BUTTONS*/}
+      
       <div className="navbar-nav ms-auto align-items-center gap-2">
          <Link className="nav-link btn btn-outline-warning border-0 me-lg-2" to="/HelpPage">
           Help

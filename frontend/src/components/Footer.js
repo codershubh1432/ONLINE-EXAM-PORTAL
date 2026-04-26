@@ -3,10 +3,10 @@ function Footer() {
     <footer className="bg-light py-5 mt-auto">
       <div className="container">
 
-        {/* Top Section */}
+        
         <div className="row text-start">
 
-          {/* Services */}
+          
           <div className="col-md-3 mb-4">
             <h5 className="fw-bold">Services</h5>
             <ul className="list-unstyled">
@@ -26,7 +26,7 @@ function Footer() {
             </ul>
           </div>
 
-          {/* Support */}
+          
           <div className="col-md-3 mb-4">
             <h5 className="fw-bold">Support</h5>
             <ul className="list-unstyled">
@@ -35,7 +35,7 @@ function Footer() {
             </ul>
           </div>
 
-          {/* Address */}
+          
           <div className="col-md-3 mb-4">
             <h5 className="fw-bold">Address</h5>
             <p className="mb-0 text-muted">
@@ -47,10 +47,10 @@ function Footer() {
 
         </div>
 
-        {/* Divider */}
+        
         <hr />
 
-        {/* Bottom Section */}
+        
         <div className="d-flex justify-content-between align-items-center flex-wrap small text-muted">
           <p className="mb-0">© COPYRIGHT 2026. ALL RIGHTS RESERVED.</p>
           <p className="mb-0">Website Made by Shubham Avinash Shingne</p>

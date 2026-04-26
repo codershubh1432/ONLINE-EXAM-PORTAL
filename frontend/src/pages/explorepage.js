@@ -7,7 +7,7 @@ function ExplorePage({ searchResults }) {
   const [message, setMessage] = useState("");
   const [type, setType] = useState("");
 
-  // 🎯 Exam UI details
+  
   const examDetails = {
     "mca": {
       title: "MAH-MCA-CET",
@@ -26,26 +26,7 @@ function ExplorePage({ searchResults }) {
     },
   };
 
-  // ✅ Start Exam Handler
-//   const handleStart = (examType) => {
-//     const token = localStorage.getItem("token");
-
-//     if (!token) {
-//       setType("warning");
-//       setMessage("Please login first... Redirecting");
-
-//       // ✅ Save selected exam
-//       localStorage.setItem("selectedExam", examType);
-
-//       setTimeout(() => {
-//         navigate("/login");
-//       }, 1000);
-//     } else {
-//       // ✅ Save and go to exam
-//       localStorage.setItem("selectedExam", examType);
-//       navigate(`/exam/${examType}`);
-//     }
-//   };
+  
 const handleStart = (examType) => {
   const token = localStorage.getItem("token");
 
@@ -53,7 +34,7 @@ const handleStart = (examType) => {
     setType("warning");
     setMessage("Please login first... Redirecting");
 
-    // ✅ Save redirect to explore (NOT exam)
+    
     localStorage.setItem("redirectAfterLogin", "/explore");
 
     setTimeout(() => {
@@ -61,12 +42,12 @@ const handleStart = (examType) => {
     }, 1000);
 
   } else {
-    // ✅ Directly start exam
+    
     navigate(`/exam/${examType}`);
   }
 };
 
-  // 🔥 Unique exams from backend OR fallback
+  
   const uniqueExams =
     searchResults && searchResults.length > 0
       ? [...new Set(searchResults.map((item) => item.exam))]
@@ -75,22 +56,22 @@ const handleStart = (examType) => {
   return (
     <div className="container mt-5">
 
-      {/* MESSAGE */}
+      
       {message && (
         <div className={`alert alert-${type} text-center`}>
           {message}
         </div>
       )}
 
-      {/* HEADER */}
+  
       <div className="text-center mb-5">
         <h2 className="fw-bold">Explore Tests</h2>
         <p className="text-muted">
-          Choose a test and start practicing instantly 🚀
+          Choose a test and start practicing instantly 
         </p>
       </div>
 
-      {/* CARDS */}
+      
       <div className="row">
         {uniqueExams.length > 0 ? (
           uniqueExams.map((exam) => {
@@ -127,7 +108,7 @@ const handleStart = (examType) => {
             );
           })
         ) : (
-          <p className="text-center">No exams found ❌</p>
+          <p className="text-center">No exams found </p>
         )}
       </div>
 

@@ -6,7 +6,7 @@ import { Person, Key } from "react-bootstrap-icons";
 function Login() {
   const navigate = useNavigate();
 
-  // ✅ STATE
+  
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -15,7 +15,7 @@ function Login() {
   const [message, setMessage] = useState("");
   const [type, setType] = useState(""); 
 
-  // ✅ HANDLE INPUT
+  
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -23,12 +23,12 @@ function Login() {
     });
   };
 
-  // ✅ HANDLE SUBMIT
+  
   const handleSubmit = async (e) => {
     e.preventDefault(); 
 
     try {
-      const response = await fetch("http://localhost:5000/api/login", {
+      const response = await fetch("https://online-exam-portal-vs1n.onrender.com/api/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -42,22 +42,10 @@ function Login() {
         setType("success");
         setMessage("Login successful! Redirecting...");
 
-        // ✅ Save token
+        
         localStorage.setItem("token", data.token);
 
-        // ⏳ Redirect after short delay
-        // setTimeout(() => {
-        //   navigate("/"); // ✅ FIXED route
-        // }, 1500);
-//         setTimeout(() => {
-//   const selectedExam = localStorage.getItem("selectedExam");
-
-//   if (selectedExam) {
-//     navigate(`/exam/${selectedExam}`);
-//   } else {
-//     navigate("/explore");
-//   }
-// }, 1500);
+  
 setTimeout(() => {
   const redirectPath = localStorage.getItem("redirectAfterLogin");
 
@@ -102,17 +90,17 @@ setTimeout(() => {
 
         <div className="mx-auto" style={{ maxWidth: "400px" }}>
 
-          {/* ✅ MESSAGE */}
+        
           {message && (
             <div className={`alert alert-${type} text-center`}>
               {message}
             </div>
           )}
 
-          {/* ✅ FORM */}
+      
           <form onSubmit={handleSubmit}>
 
-            {/* Email */}
+            
             <div className="input-group mb-4 border rounded-3 px-2">
               <span className="input-group-text bg-transparent border-0 text-white">
                 <Person />
@@ -127,7 +115,7 @@ setTimeout(() => {
               />
             </div>
 
-            {/* Password */}
+            
             <div className="input-group mb-4 border rounded-3 px-2">
               <span className="input-group-text bg-transparent border-0 text-white">
                 <Key />
@@ -142,7 +130,7 @@ setTimeout(() => {
               />
             </div>
 
-            {/* Button */}
+          
             <button
               type="submit"
               className="btn w-100 fw-bold"

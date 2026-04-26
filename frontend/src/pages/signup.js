@@ -25,7 +25,7 @@ function SignUp() {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:5000/api/signup", {
+      const response = await fetch("https://online-exam-portal-vs1n.onrender.com/api/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -39,7 +39,7 @@ function SignUp() {
         setType("success");
         setMessage("Sucess Redirecting to login...");
 
-        // ⏳ Auto redirect after 2 sec
+        
         setTimeout(() => {
           navigate("/login");
         }, 2000);
@@ -79,7 +79,7 @@ function SignUp() {
           <h4 className="mt-2">Sign Up</h4>
         </div>
 
-        {/* ✅ Message Display */}
+    
         {message && (
           <div className={`alert alert-${type} text-center`}>
             {message}

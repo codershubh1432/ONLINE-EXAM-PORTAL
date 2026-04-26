@@ -8,7 +8,7 @@ function HelpPage() {
         <div className="card-body">
           <h2 className="text-center mb-4 mt-5">📘 Help & Instructions</h2>
 
-          {/* Step 1 */}
+          
           <div className="mb-3">
             <h5>1️⃣ Signup First</h5>
             <p className="text-muted">
@@ -17,7 +17,7 @@ function HelpPage() {
             </p>
           </div>
 
-          {/* Step 2 */}
+          
           <div className="mb-3">
             <h5>2️⃣ Login to Your Account</h5>
             <p className="text-muted">
@@ -26,7 +26,7 @@ function HelpPage() {
             </p>
           </div>
 
-          {/* Step 3 */}
+          
           <div className="mb-3">
             <h5>3️⃣ Choose a Test</h5>
             <p className="text-muted">
@@ -35,7 +35,7 @@ function HelpPage() {
             </p>
           </div>
 
-          {/* Step 4 */}
+          
           <div className="mb-3">
             <h5>4️⃣ Start the Test</h5>
             <p className="text-muted">
@@ -44,7 +44,7 @@ function HelpPage() {
             </p>
           </div>
 
-          {/* Step 5 */}
+        
           <div className="mb-3">
             <h5>5️⃣ Attempt Questions</h5>
             <p className="text-muted">
@@ -53,7 +53,7 @@ function HelpPage() {
             </p>
           </div>
 
-          {/* Step 6 */}
+        
           <div className="mb-3">
             <h5>6️⃣ Submit the Test</h5>
             <p className="text-muted">
@@ -63,13 +63,13 @@ function HelpPage() {
             </p>
           </div>
 
-          {/* Important Note */}
+          
           <div className="alert alert-warning mt-4">
             ⚠️ <strong>Important:</strong> Do not refresh or close the browser
             during the test, or your progress may be lost.
           </div>
 
-          {/* Back Button */}
+          
           <div className="text-center mt-3">
             <button
               className="btn btn-primary px-4"

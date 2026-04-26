@@ -6,9 +6,9 @@ function ExamPage() {
   const [answers, setAnswers] = useState({});
 
   const navigate = useNavigate();
-  const { exam } = useParams(); // ✅ GET EXAM TYPE
+  const { exam } = useParams(); 
 
-  // 🔐 Protect route
+ 
   useEffect(() => {
     const token = localStorage.getItem("token");
 
@@ -17,9 +17,9 @@ function ExamPage() {
     }
   }, [navigate]);
 
-  // 📥 Fetch questions based on exam
+  
   useEffect(() => {
-    fetch(`http://localhost:5000/api/questions/${exam}`) // ✅ FIXED
+    fetch(`https://online-exam-portal-vs1n.onrender.com/api/questions/${exam}`) 
       .then(res => res.json())
       .then(data => {
         setQuestions(data);
@@ -27,7 +27,7 @@ function ExamPage() {
       .catch(err => console.log(err));
   }, [exam]);
 
-  // 📝 Select answer
+  
   const handleSelect = (qIndex, option) => {
     setAnswers(prev => ({
       ...prev,
@@ -38,7 +38,7 @@ function ExamPage() {
   
   const handleSubmit = async () => {
   try {
-    const response = await fetch("http://localhost:5000/api/submit", {
+    const response = await fetch("https://online-exam-portal-vs1n.onrender.com/api/submit", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -52,7 +52,7 @@ function ExamPage() {
 
     const data = await response.json();
 
-    // 🚀 GO TO RESULT PAGE
+    
     navigate("/result", {
       state: {
         score: data.score,
@@ -67,7 +67,7 @@ function ExamPage() {
   }
 };
 
-  // 🚫 Disable right click
+  
   useEffect(() => {
     const disableRightClick = (e) => e.preventDefault();
     document.addEventListener("contextmenu", disableRightClick);
@@ -77,7 +77,7 @@ function ExamPage() {
     };
   }, []);
 
-  // 🚫 Warn before refresh
+  
   useEffect(() => {
     const handleBeforeUnload = (e) => {
       e.preventDefault();
